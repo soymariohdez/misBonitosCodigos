@@ -1,53 +1,47 @@
+//Un punto en el plano se puede representar mediante una estructura con dos campos...
 #include <stdio.h>
-void main(){
-	//Estas son las variables :)
-	int cualFila, cualColumna, opcion, pos, filas=5, columnas=5, ok=0;
-	float ganancias=0.00;
-	//Matriz
-	int asientos[tam][tam];
-	//Mi "boolean", OCUPADO=1 / VACIO=0
-	//Llenar asientos con mi boolean
-		for(int fila=0; fila<5; pos++){
-			for(int columna=0; columna<5; columna++){
-				asientos[fila][columna]=0;
-			}
-		}
-	while(opcion=!3){
-		printf("¡Bienvenido a CINEPOLIS FMOcc! ¿Qué acción desea realizar?\n1. Comprar entrada.\n2. Mostrar las ganancias.\n3. Salir.");
-		scanf("%d", &opcion);
-		switch(cualqQuiere){
-			//Comprar entrada
-			1: 
-			while(ok=0){
-			//Preguntar fila
-			printf("¿Qué fila desea?");
-			scanf("%d", &cualFila);
-			//Preguntar columna
-			printf("¿Qué columna desea?");
-			scanf("%d", &cualColumna);
-			if(asientos[cualFila][cualColumna]==1){
-				printf("Lo lamento, ese asiento ya se lo ganaron :c. Venga más temprano. Por ahora elija otro asiento :)");
-			}
-			else{
-				ok=1;
-				printf("Asiento asignado satisfactoriamente :)");
-				asientos[cualFila][cualColumna]=1;
-				if(cualFila==1){
-					ganancias=ganancias+5.00;
-				}
-				else if(cualFila==2 || cualFila==3 || cualfila==4){
-					ganancias=ganancias+3.50;
-				}
-				else{
-					ganancias=ganancias+2.50;
-				}
-			}
-			}
-			break;
-			//Mostrar ganancias
-			2:
-			printf("Ganancias totales");
-		}
-	}
+#include <math.h>
 
-}
+struct campo{
+	int ejex;
+	int ejey;
+	}punto1, punto2;
+	
+int main(){
+	//PARTE A)
+	//Primero se piden las coordenadas de los puntos.
+	//Comenzamos con el punto 1.
+	printf("Escriba las coordenadas del punto 1");
+	printf("\nEn X:");
+	scanf("%i", &punto1.ejex);
+	printf("\nEn Y:");
+	scanf("%i", &punto1.ejey);
+	//Comenzamos con el punto 2.
+	printf("\n\nEscriba las coordenadas del punto 2");
+	printf("\nEn X:");
+	scanf("%i", &punto2.ejex);
+	printf("\nEn Y:");
+	scanf("%i", &punto2.ejey);
+	
+	//Ahora, calcular la distancia entre ellos
+	int distancia, raiz, cuadradoX, cuadradoY;
+	//Vamos por partes c: Primero, sacamos el cuadrado de X
+	int ejeX = (punto2.ejex-punto1.ejex);
+	cuadradoX = pow(ejeX, 2);
+	//Ahora el cuadrado en Y
+	int ejeY = (punto2.ejey-punto1.ejey);
+	cuadradoY = pow(ejeY, 2);
+	//Por último sacamos la raíz cuadrada
+	distancia = sqrt(ejeX+ejeY);
+	printf("La distancia entre los puntos es: %i", distancia);
+	
+	
+	
+	//PARTE B)
+	//Calculando la pendiente
+	int m= ((punto2.ejey-punto1.ejey)/(punto1.ejex-punto2.ejex));
+	//Sacamos la ecuacion general de la recta :D
+	printf("La ecuación de la recta es: \ny-%i=%i(x-%i)", punto1.ejey, punto1.ejex);
+	
+	return 0;
+	}
